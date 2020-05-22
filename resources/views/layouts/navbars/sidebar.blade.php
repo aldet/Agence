@@ -51,6 +51,28 @@ Tip 2: you can also add an image using data-image tag
                     </ul>
                 </div>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#clientagence" @if($activeButton =='client') aria-expanded="true" @endif>
+                    <i>
+                        <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
+                    </i>
+                    <p>
+                        {{ __('Client') }}
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse @if($activeButton =='client') show @endif" id="clientagence">
+                    <ul class="nav">
+                        <li class="nav-item @if($activePage == 'user') active @endif">
+                            <a class="nav-link" href="{{route('NosClients')}}">
+                                <i class="nc-icon nc-single-02"></i>
+                                <p>{{ __("Ajouter client") }}</p>
+                            </a>
+                        </li>   
+                    </ul>
+                </div>
+            </li>
 
             <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">

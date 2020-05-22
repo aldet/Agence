@@ -34,7 +34,6 @@
                                         <button class="btn btn-warning" type="submit">Supprimer</button>
                                         @endcan
                                        </form>
-
                                    </td>
                                 </tr>
                                 @endforeach

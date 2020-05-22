@@ -21,8 +21,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
+Route::resource('client', 'ClientController');
 
 Route::get('/home', 'HomeController@index')->name('dashboard');
+Route::get('/client','ClientController@index')->name('NosClients');
+Route::post('ajout/client','ClientController@ajoutClient')->name('ajoutClient');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
 	Route::resource('users', 'UsersController');
