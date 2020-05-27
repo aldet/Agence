@@ -16,7 +16,7 @@ class ClientController extends Controller
     {    
 
         $clients=Client::all();
-        return view('gestionclient.client');
+        return view('gestionclient.list')->with('clients',$clients);
     }
     public function ajoutClient(Request $request){
 
@@ -29,7 +29,7 @@ class ClientController extends Controller
         $client->num_permis=$request->permis;
         $client->email=$request->email;
         $client->save();
-        return redirect()->route('NosClients');
+        return redirect()->route('gestionclient.list');
 
 
     }
@@ -42,7 +42,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('gestionclient.client');
     }
 
     /**
@@ -73,9 +73,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        return view('gestionclient.edit',['client'=>$client]);
     }
 
     /**
@@ -85,9 +85,11 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Client $client)
     {
-        //
+        $client->update($request->all());
+        $client->save();
+        
     }
 
     /**
@@ -96,8 +98,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('gestionclient.list');
     }
 }

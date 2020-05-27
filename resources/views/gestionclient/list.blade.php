@@ -26,6 +26,13 @@
                                   <td>{{$client->pays}}</td>
                                   <td>{{$client->email}}</td>
                                   <td>{{$client->Telephone}}</td>
+                                  <td> <a href="{{route('client.edit',$client->id)}}"><button class="btn btn-primary">Editer</button></a>
+                                  <form action="{{route('client.destroy',$client->id)}}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-warning" type="submit">Supprimer</button>
+                                  </form>
+                                  </td>
                                   </tr>         
                                 @endforeach
                             </tbody>

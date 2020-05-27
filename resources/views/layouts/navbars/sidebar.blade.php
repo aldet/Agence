@@ -63,9 +63,18 @@ Tip 2: you can also add an image using data-image tag
                     </p>
                 </a>
                 <div class="collapse @if($activeButton =='client') show @endif" id="clientagence">
+                    
                     <ul class="nav">
                         <li class="nav-item @if($activePage == 'user') active @endif">
                             <a class="nav-link" href="{{route('NosClients')}}">
+                                <i class="nc-icon nc-single-02"></i>
+                                <p>{{ __("List client") }}</p>
+                            </a>
+                        </li>   
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item @if($activePage == 'user') active @endif">
+                            <a class="nav-link" href="{{route('client.create')}}">
                                 <i class="nc-icon nc-single-02"></i>
                                 <p>{{ __("Ajouter client") }}</p>
                             </a>
