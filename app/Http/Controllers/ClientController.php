@@ -74,8 +74,11 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Client $client)
-    {
+    { 
+        
         return view('gestionclient.edit',['client'=>$client]);
+        
+
     }
 
     /**
