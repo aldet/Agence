@@ -51,7 +51,28 @@ Tip 2: you can also add an image using data-image tag
                     </ul>
                 </div>
             </li>
-            
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#agence" @if($activeButton =='agence') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bank"></i>
+                    <p>{{ __("Agence") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='agence') show @endif" id="agence">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('agence.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Mon agence") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('agence.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Nouvelle agence") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#clientagence" @if($activeButton =='client') aria-expanded="true" @endif>
                     <i>

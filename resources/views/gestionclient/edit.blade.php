@@ -3,7 +3,14 @@
    <div class="content">
       <div class="container-fluid">
           <div class="col-md-12">
-            <div class="card-header">Modifier client<strong></strong></div>
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h3 class="mb-0">{{ __('Modifier client') }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-header">
                 <form action="{{route('client.update',$client)}}" method="post">
                     @csrf
                     @method('PUT')
