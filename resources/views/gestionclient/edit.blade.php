@@ -14,6 +14,14 @@
                 <form action="{{route('client.update',$client)}}" method="post">
                     @csrf
                     @method('PUT')
+                    @if ($errors->any())
+                        <div>
+                            @foreach($errors->all() as $err)
+                                <div class="alert alert-danger">{{ $err }}</div>
+                            @endforeach
+                        </div>
+                    @endif
+
                     <div class="form-group">
                         <label for="formGroupExampleInput" class="col-md-6 col-form-label">{{ __('Nom') }}</label>
                         <input id="formGroupExampleInput" type="text" class="form-control"  name="nom_client" value="{{$client->nom_client}}" >               
