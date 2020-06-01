@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @property int $id
  * @property string $nom_client
- * @property string $num_permis
  * @property string $prenom
+ * @property string $num_permis
  * @property string $pays
+ * @property string $email
  * @property string $telephone
  * @property string $code_postal
  */
