@@ -15,6 +15,8 @@ class UpdateClientTable extends Migration
     {
         Schema::table('clients', function (Blueprint $table){
             $table->string('telephone', 50)->change();
+            $table->string('code_postal', 50)->nullable()->change();
+            $table->string('email', 50)->nullable()->change();
         });
     }
 

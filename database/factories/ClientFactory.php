@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 $factory->define(Client::class, function (Faker $faker) {
     return [
         'nom_client'  => $faker->firstName,
-        'prenoms'     => $faker->lastName,
+        'prenom'      => $faker->lastName,
         'num_permis'  => $faker->ean8,
         'email'       => $faker->email,
         'pays'        => $faker->country,

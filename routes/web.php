@@ -18,15 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::resource('client', 'ClientController');
 Route::resource('agence', 'AgenceController');
 
 Route::get('/home', 'HomeController@index')->name('dashboard');
-Route::get('/client','ClientController@index')->name('NosClients');
-Route::post('ajout/client','ClientController@ajoutClient')->name('ajoutClient');
 Route::post('ajout/agence','AgenceController@ajoutAgence')->name('ajoutAgence');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){

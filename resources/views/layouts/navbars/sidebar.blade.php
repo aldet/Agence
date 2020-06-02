@@ -17,7 +17,7 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Dashboard") }}</p>
                 </a>
             </li>
-           
+
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>
                     <i>
@@ -84,14 +84,14 @@ Tip 2: you can also add an image using data-image tag
                     </p>
                 </a>
                 <div class="collapse @if($activeButton =='client') show @endif" id="clientagence">
-                    
+
                     <ul class="nav">
                         <li class="nav-item @if($activePage == 'user') active @endif">
-                            <a class="nav-link" href="{{route('NosClients')}}">
+                            <a class="nav-link" href="{{route('client.index')}}">
                                 <i class="nc-icon nc-single-02"></i>
                                 <p>{{ __("List client") }}</p>
                             </a>
-                        </li>   
+                        </li>
                     </ul>
                     <ul class="nav">
                         <li class="nav-item @if($activePage == 'user') active @endif">
@@ -99,7 +99,7 @@ Tip 2: you can also add an image using data-image tag
                                 <i class="nc-icon nc-single-02"></i>
                                 <p>{{ __("Ajouter client") }}</p>
                             </a>
-                        </li>   
+                        </li>
                     </ul>
                 </div>
             </li>
