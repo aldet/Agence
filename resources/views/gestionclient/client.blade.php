@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <form method="POST" action="{{route('ajoutClient')}}">
                             @csrf
-                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('nom') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-user"></i>{{ __('Nom') }}</label>
                                     <input type="text" name="nom" id="formGroupExampleInput" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Nom') }}" value="">
     
@@ -33,29 +33,35 @@
     
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('permis') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Num permis') }}</label>
                                     <input type="text" name="permis" id="formGroupExampleInput" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Num permis') }}" value="" >
     
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'permis'])
                                 </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('telephone') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Num télephone') }}</label>
                                     <input type="Number" name="telephone" id="formGroupExampleInput" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Num télephone') }}" value="" >
     
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'telephone'])
                                 </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('pays') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Pays') }}</label>
                                     <input type="text" name="pays" id="formGroupExampleInput" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Pays') }}" value="">
     
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'pays'])
                                 </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('postal') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Code postal') }}</label>
                                     <input type="text" name="postal" id="v" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Code postal') }}" value="">
     
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'postal'])
+                                </div>
+                                <div class="form-group{{ $errors->has('agence_id') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="formGroupExampleInput"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Agence_id') }}</label>
+                                    <input type="Number" name="agence_id" id="formGroupExampleInput" class="form-control{{ $errors->has('agence_id') ? ' is-invalid' : '' }}" placeholder="{{ __('Agence_id') }}" value="" >
+    
+                                    @include('alerts.feedback', ['field' => 'agence_id'])
                                 </div>
                                
                                 <div class="text-center">

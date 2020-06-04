@@ -28,8 +28,9 @@ class ClientController extends Controller
         $client->telephone=$request->telephone;
         $client->num_permis=$request->permis;
         $client->email=$request->email;
+        $client->agence_id=$request->agence_id;
         $client->save();
-        return redirect()->route('gestionclient.list');
+        return redirect()->route('client.index');
 
 
     }
@@ -92,6 +93,8 @@ class ClientController extends Controller
     {
         $client->update($request->all());
         $client->save();
+        return redirect()->route('NosClients');
+
         
     }
 

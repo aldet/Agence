@@ -41,7 +41,11 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput" class="col-md-6 col-form-label">{{__('Code postal')}}</label>                 
                        <input id="formGroupExampleInput" type="text" class="form-control"  name="code_postal" value="{{$client->code_postal}}">
-                  </div>          
+                    </div>   
+                    <div class="form-group">
+                        <label for="formGroupExampleInput" class="col-md-6 col-form-label">{{__('Agence_id')}}</label>                 
+                       <input id="formGroupExampleInput" type="number" class="form-control"  name="agence_id" value="{{$client->agence_id}}">
+                    </div>         
                   <button type="submit" class="btn btn-warning">Enregistrer</button>
                 </form>
           </div>

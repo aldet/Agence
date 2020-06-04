@@ -15,6 +15,7 @@
                                 <th>Pays</th>
                                 <th>Email</th>
                                 <th>Telephone</th>
+                                <th>Agence_id</th>
                             </thead>
                             <tbody>
                                 @foreach ($clients as $client)
@@ -25,7 +26,8 @@
                                   <td>{{$client->num_permis}}</td>
                                   <td>{{$client->pays}}</td>
                                   <td>{{$client->email}}</td>
-                                  <td>{{$client->Telephone}}</td>
+                                  <td>{{$client->telephone}}</td>
+                                  <td>{{$client->agence_id}}</td>
                                   <td> <a href="{{route('client.edit',$client->id)}}"><button class="btn btn-primary">Editer</button></a>
                                   <form action="{{route('client.destroy',$client->id)}}" method="POST" class="d-inline">
                                     @csrf

@@ -12,17 +12,18 @@ class AgenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('gestionagence.index');
+    public function index(Agence $agences)
+    {   
+        $agences=Agence::all();
+        return view('gestionagence.index')->with('agences',$agences);
     }
     public function ajoutAgence(Request $request){
         $agence=new Agence;
-        $agence->nom=$request->nom_agence;
+        $agence->nom_agence=$request->nom_agence;
         $agence->pays=$request->pays;
         $agence->ville=$request->ville;
-        $agence->email=$request->email;
-        $agence->adresse=$request->adresse;
+        $agence->email_agence=$request->email;
+        $agence->adresse_agence=$request->adresse;
         $agence->code_postal=$request->code_postal;
         $agence->telephone=$request->telephone;
         $agence->save();
@@ -68,9 +69,11 @@ class AgenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Agence $agence)
     {
-        //
+        return view('gestionagence.edit',[
+            'agence'=>$agence
+        ]);
     }
 
     /**
@@ -80,9 +83,11 @@ class AgenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Agence $agence)
     {
-        //
+        $agence->update($request->all());
+        $agence->save();
+        return redirect()->route('agence.index');
     }
 
     /**
@@ -91,8 +96,9 @@ class AgenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Agence $agence)
     {
-        //
+        $agence->delete();
+        return redirect()->route('gestionagence.index');
     }
 }
