@@ -1,4 +1,4 @@
-<!-- 
+<!--
 =========================================================
  Light Bootstrap Dashboard - v2.0.1
 =========================================================
@@ -28,6 +28,8 @@
         <!-- CSS Files -->
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
+        <link href="{{ asset('css/aldet.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
     </head>
@@ -47,7 +49,7 @@
             </div>
 
         </div>
-       
+
 
 
     </body>
@@ -72,7 +74,7 @@
     @stack('js')
     <script>
       $(document).ready(function () {
-        
+
         $('#facebook').sharrre({
           share: {
             facebook: true

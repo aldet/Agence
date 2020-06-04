@@ -11,21 +11,8 @@
                 </div>
             </div>
             <div class="card-header">
-                <form action="{{route('client.update',$client)}}" method="post">
-                    @csrf
-                    @method('PUT')
-                    @if ($errors->any())
-                        <div>
-                            @foreach($errors->all() as $err)
-                                <div class="alert alert-danger">{{ $err }}</div>
-                            @endforeach
-                        </div>
-                    @endif
-
-                  <button type="submit" class="btn btn-warning">Enregistrer</button>
-                </form>
+                @include('client._form', ['action' => route('client.update', $client), 'method' => 'PUT'])
           </div>
       </div>
    </div>
-
 @endsection

@@ -4,10 +4,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card-beader">Liste des clients</div>
-                    <div class="table-responsive table-full-width">
-                        <table class="table table-hover table-striped">
-                            <thead>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des clients</h4>
+                        </div>
+                        <div class="card-body table-full-width table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
                                 <th>#</th>
                                 <th>Nom</th>
                                 <th>Prenom</th>
@@ -15,8 +18,8 @@
                                 <th>Pays</th>
                                 <th>Email</th>
                                 <th>Telephone</th>
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
                                 @foreach ($clients as $client)
                                     <tr>
                                         <td>{{ $client->id }}</td>
@@ -26,21 +29,28 @@
                                         <td>{{ $client->pays }}</td>
                                         <td>{{ $client->email }}</td>
                                         <td>{{ $client->Telephone }}</td>
-                                        <td>
-                                            <a href="{{route('client.edit',$client->id)}}">
-                                                <button class="btn btn-primary">Editer</button>
-                                            </a>
-                                            <form action="{{route('client.destroy',$client->id)}}" method="POST"
-                                                  class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-warning" type="submit">Supprimer</button>
-                                            </form>
+                                        <td class="td-actions">
+                                            <div class="d-flex justify-content-end">
+                                                <a href="{{ route('client.show', $client->id) }}" rel="tooltip" title="Plus de détails" class="btn btn-info">
+                                                    <i class="nc-icon nc-notes"></i>
+                                                </a>
+                                                <a href="{{route('client.edit',$client->id)}}" rel="tooltip" title="Modifier"  class="btn btn-success">
+                                                    <i class="nc-icon nc-layers-3"></i>
+                                                </a>
+                                                <form action="{{ route('client.destroy', $client->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button href="#" rel="tooltip" title="Supprimer" class="btn btn-danger">
+                                                        <i class="nc-icon nc-simple-remove"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,21 @@
+.td-actions .btn {
+    padding: 0;
+    border: none;
+    margin: 0 10px;
+    font-size: 125%;
+}
+.table tbody tr {
+    font-size: 0.8rem;
+}
+.big-profile-icon{
+    height: 100px;
+    width: 100px;
+    font-size: 70px;
+    text-align: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: indigo;
+    color: #fff;
+}
