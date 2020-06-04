@@ -14,8 +14,8 @@ class AjoutColonneAuClient extends Migration
     public function up()
     {
         Schema::table('clients', function (Blueprint $table) {
-            $table->bigInteger('agence_id')->unsigned();
-            $table->foreign('agence_id')->refeences('id')->on('agences');
+            $table->integer('agence_id')->unsigned()->nullable();
+            $table->foreign('agence_id')->references('id')->on('agences');
 
         });
     }

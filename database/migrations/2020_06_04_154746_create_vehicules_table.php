@@ -21,7 +21,7 @@ class CreateVehiculesTable extends Migration
             $table->date('date_achat')->nullable();
             $table->string('photo_vehicule')->nullable();
             $table->string('carte_grise')->nullable();
-            $table->bigInteger('agence_id')->unsigned();
+            $table->integer('agence_id')->unsigned();
             $table->foreign('agence_id')->refeences('id')->on('agences');
             $table->timestamps();
         });
