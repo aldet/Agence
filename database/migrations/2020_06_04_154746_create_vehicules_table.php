@@ -22,7 +22,7 @@ class CreateVehiculesTable extends Migration
             $table->string('photo_vehicule')->nullable();
             $table->string('carte_grise')->nullable();
             $table->integer('agence_id')->unsigned();
-            $table->foreign('agence_id')->refeences('id')->on('agences');
+            $table->foreign('agence_id')->references('id')->on('agences');
             $table->timestamps();
         });
     }

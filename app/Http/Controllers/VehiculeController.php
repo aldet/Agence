@@ -3,24 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Client;
 
-class ClientController extends Controller
+class VehiculeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {    
-        $clients = Client::all();
-
-        return view('client.index')->with('clients', $clients);
+    public function index(Vehicule $vehicules)
+    {
+        $vehicules=Vehicule::all();
+        return view('gestionvehicule.park');
+        
     }
 
-  
+    public function ajoutVehicule(Request $request)
+    {
+          $vehicule=new Vehicule;
+          $vehicule->nom=$request->nom_vehicule;
+          $vehicule->num_matriculation=$request->num_matriculation;
+          $vehicule->km_compteur=$request->km_compteur;
+          $vehicule->date_achat=$request->date_achat;
+          $vehicule->photo_vehicule=$request->photo_vehicule;
+          $vehicule->carte_grise=$request->carte_grise;
+          $vehicule->agence_id=$request->agence_id;
+          $vehicule->save();
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +38,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        //
     }
 
     /**
@@ -39,7 +49,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client = new Client;
+        //
     }
 
     /**
@@ -59,12 +69,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
-    { 
-        
-        return view('gestionclient.edit',['client'=>$client]);
-        
-
+    public function edit($id)
+    {
+        return view('gestionvehicule.edit',['vehicule'=>$vehicule]);
     }
 
     /**
@@ -74,13 +81,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Client $client)
+    public function update(Request $request,Vehicule $vehicule)
     {
-        $client->update($request->all());
-        $client->save();
-        return redirect()->route('NosClients');
-
-        
+        $vehicule->update($request->all());
+        $vehicule->save();
     }
 
     /**
@@ -89,9 +93,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id,Vehicule $vehicule)
     {
-        $client->delete();
-        return redirect()->route('gestionclient.list');
+        $vehicule->delete();
     }
 }
