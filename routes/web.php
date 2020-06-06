@@ -26,7 +26,7 @@ Route::resource('vehicule', 'VehiculeController');
 
 Route::get('/home', 'HomeController@index')->name('dashboard');
 Route::post('ajout/agence','AgenceController@ajoutAgence')->name('ajoutAgence');
-Route::po
+
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
 	Route::resource('users', 'UsersController');

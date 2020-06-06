@@ -5,8 +5,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between">
                             <h4 class="card-title">Liste des clients</h4>
+                            <a class="btn btn-primary" href="{{ route('client.create') }}">Créer un client</a>
                         </div>
                         <div class="card-body table-full-width table-responsive">
                             <table class="table table-hover table-striped">
@@ -40,7 +41,7 @@
                                                 <form action="{{ route('client.destroy', $client->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button href="#" rel="tooltip" title="Supprimer" class="btn btn-danger">
+                                                    <button type="button" title="Supprimer" class="btn btn-danger delete-client-button">
                                                         <i class="nc-icon nc-simple-remove"></i>
                                                     </button>
                                                 </form>
@@ -56,4 +57,16 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('javascript')
+    <script>
+        $(document).ready(function () {
+            $('.delete-client-button').click(function(){
+                if (confirm('Voulez-vous supprimer ce client?')){
+                    $(this).closest('form').submit()
+                }
+            });
+        });
+    </script>
 @endsection
