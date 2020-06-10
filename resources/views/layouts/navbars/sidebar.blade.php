@@ -102,8 +102,31 @@ Tip 2: you can also add an image using data-image tag
                         </li>
                     </ul>
                 </div>
+                
             </li>
-
+            
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#vehicule" @if($activeButton =='vehicule') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bank"></i>
+                    <p>{{ __("Vehicule") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='vehcicule') show @endif" id="vehicule">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('vehicule.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste voiture") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('vehicule.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer voiture") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>

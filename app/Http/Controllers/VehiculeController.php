@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\VehiculeRequest;
 use Illuminate\Http\Request;
+use App\Vehicule;
+use Illuminate\Validation\Rule;
+
 
 class VehiculeController extends Controller
 {
@@ -11,34 +14,22 @@ class VehiculeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Vehicule $vehicules)
+    public function index()
     {
         $vehicules=Vehicule::all();
-        return view('gestionvehicule.park');
+        return view('vehicule.index')->with('vehicules',$vehicules);
         
     }
 
-    public function ajoutVehicule(Request $request)
-    {
-          $vehicule=new Vehicule;
-          $vehicule->nom=$request->nom_vehicule;
-          $vehicule->num_matriculation=$request->num_matriculation;
-          $vehicule->km_compteur=$request->km_compteur;
-          $vehicule->date_achat=$request->date_achat;
-          $vehicule->photo_vehicule=$request->photo_vehicule;
-          $vehicule->carte_grise=$request->carte_grise;
-          $vehicule->agence_id=$request->agence_id;
-          $vehicule->save();
-
-    }
+  
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {  $vehicule=new Vehicule();
+       return view('vehicule.create',['vehicule'=>$vehicule]);
     }
 
     /**
@@ -47,9 +38,12 @@ class VehiculeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehiculeRequest $request)
     {
-        //
+        $vehicule=new Vehicule();
+        $vehicule->fill($request->validated())->save();
+        return response()->redireToRoute('vehicule.show',$vehicule);
+
     }
 
     /**
@@ -58,9 +52,9 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicule $vehicule)
     {
-        //
+        return view('vehicule.show',['vehicule' =>$vehicule]);
     }
 
     /**
@@ -69,9 +63,10 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        return view('gestionvehicule.edit',['vehicule'=>$vehicule]);
+    public function edit(Vehicule $vehivule)
+    {   $oldInput=session()->getOldInput();
+        $vehicule=fill($oldInput);
+        return view('gestionvehicule.edit',['vehicule' => $vehicule]);
     }
 
     /**
@@ -81,10 +76,11 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Vehicule $vehicule)
+    public function update(VehiculeRequest $request,Vehicule $vehicule)
     {
-        $vehicule->update($request->all());
+        $vehicule->update($request->validated());
         $vehicule->save();
+        return redirect()->route('vehicule.index');
     }
 
     /**
@@ -96,5 +92,6 @@ class VehiculeController extends Controller
     public function destroy($id,Vehicule $vehicule)
     {
         $vehicule->delete();
+        return redirect()->route('vehicule.index');
     }
 }
