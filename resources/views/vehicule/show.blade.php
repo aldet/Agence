@@ -6,7 +6,7 @@
             <div class="d-flex">
                 <a class="btn btn-default" href="{{ route('vehicule.index') }}">Liste des vehicules</a>
                 <a class="btn btn-info ml-2" href="{{ route('vehicule.edit', $vehicule) }}">Modifier</a>
-                <form action="{{ route('vehicule.destroy', $vehcicule->id) }}" method="POST" class="ml-auto">
+                <form action="{{ route('vehicule.destroy', $vehicule->id) }}" method="POST" class="ml-auto">
                     @csrf
                     @method('DELETE')
                     <button id="delete_vehicule" type="button" class="btn btn-danger">Supprimer</button>

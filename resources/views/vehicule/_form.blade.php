@@ -1,9 +1,9 @@
 
-                        <div class="form-group {{$errors->has('nom_vehicule') ? 'has-danger' :''}}">
+                        <div class="form-group {{$errors->has('nom') ? 'has-danger' :''}}">
                             <label class="form-control-label" for="form_vehicule_nom"><i class="w3-xxlarge fa fa-user"></i>
                             </label>
-                            <input type="text" name="nom_vehicule" id="form_vehicule_nom" required class="form-control {{ $errors->has('nom_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Nom') }}" value="{{  $vehicule->nom  }}">
-                            @include('alerts.feedback', ['field' => 'nom_vehicule'])
+                            <input type="text" name="nom" id="form_vehicule_nom" required class="form-control {{ $errors->has('nom') ? ' is-invalid' : '' }}" placeholder="{{ __('Nom') }}" value="{{  $vehicule->nom  }}">
+                            @include('alerts.feedback', ['field' => 'nom'])
                         </div>
                         <div class="form-group {{$errors->has('num_matriculation') ? 'has-danger' :''}}">
                             <label class="form-control-label" for="form_vehicule_num_matriculation"><i class="w3-xxlarge fa fa-user"></i>
@@ -35,5 +35,4 @@
                             <input type="text" name="photo_vehicule" id="form_vehicule_photo_vehicule" required class="form-control {{ $errors->has('photo_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Photo vehicule') }}" value="{{  $vehicule->photo_vehicule}}">
                             @include('alerts.feedback', ['field' => 'photo_vehicule'])
                         </div>
-                        
-                      
+
