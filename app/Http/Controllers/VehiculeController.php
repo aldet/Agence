@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Agence;
 use App\Http\Requests\VehiculeRequest;
 use Illuminate\Http\Request;
 use App\Vehicule;
@@ -18,10 +19,10 @@ class VehiculeController extends Controller
     {
         $vehicules=Vehicule::all();
         return view('vehicule.index')->with('vehicules',$vehicules);
-        
+
     }
 
-  
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,9 +41,17 @@ class VehiculeController extends Controller
      */
     public function store(VehiculeRequest $request)
     {
-        $vehicule=new Vehicule();
+        /** @var Vehicule $vehicule */
+        $vehicule =new Vehicule();
+
+        // ajouter la première agence par défaut
+        // Normalement on doit directement prendre l'agence de l'utilisateur connecté
+        // TODO: Utiliser l'agence de l'utilisateur connecté
+        $agence = Agence::all()->first();
+        $vehicule->agence_id = $agence->id;
+
         $vehicule->fill($request->validated())->save();
-        return response()->redireToRoute('vehicule.show',$vehicule);
+        return response()->redirectToRoute('vehicule.show',$vehicule);
 
     }
 

@@ -24,8 +24,12 @@ class VehiculeRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom'=> ['required','min:2','max:255'],
-            'matriculation' => ['required','min:2','max:255'],
+            'nom'               => ['required', 'min:2', 'max:255'],
+            'num_matriculation' => ['required', 'min:2', 'max:30'],
+            'km_compteur'       => ['required', 'min:2', 'max:30'],
+            'date_achat'        => ['nullable'],
+            'photo_vehicule'    => ['nullable'],
+            'carte_grise'       => ['nullable']
         ];
     }
 }
