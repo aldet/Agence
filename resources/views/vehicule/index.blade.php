@@ -16,6 +16,7 @@
                                 <th>Nom</th>
                                 <th>Matriculation</th>
                                 <th>kilometrage</th>
+                                <th>Date achat</th>                        
                                 </thead>
                                 <tbody>
                                 @foreach ($vehicules as $vehicule)
@@ -36,7 +37,7 @@
                                                 <form action="{{ route('vehicule.destroy', $vehicule->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="button" title="Supprimer" class="btn btn-danger delete-client-button">
+                                                    <button type="button" title="Supprimer" class="btn btn-danger delete-vehicule-button">
                                                         <i class="nc-icon nc-simple-remove"></i>
                                                     </button>
                                                 </form>
@@ -57,8 +58,8 @@
 @section('javascript')
     <script>
         $(document).ready(function () {
-            $('.delete-client-button').click(function(){
-                if (confirm('Voulez-vous supprimer ce client?')){
+            $('.delete-vehicule-button').click(function(){
+                if (confirm('Voulez-vous supprimer ce vehicule?')){
                     $(this).closest('form').submit()
                 }
             });
