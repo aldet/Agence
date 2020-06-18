@@ -22,5 +22,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicule extends Model
 {
+  
     protected $fillable=['nom','num_matriculation','km_compteur','date_achat','photo_vehicule','carte_grise'];
+
+        public function client()
+    {
+        return $this->hasOne('App\Client');
+    }
+        
+       public function agence()
+       {
+           return $this->belongsTo('App\Agence');
+       }
+
+       public function marque()
+       {
+           return $this->hasOne('App\Marque');
+       }
 }
+  

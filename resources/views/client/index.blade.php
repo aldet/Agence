@@ -29,7 +29,7 @@
                                         <td>{{ $client->num_permis }}</td>
                                         <td>{{ $client->pays }}</td>
                                         <td>{{ $client->email }}</td>
-                                        <td>{{ $client->Telephone }}</td>
+                                        <td>{{ $client->telephone }}</td>
                                         <td class="td-actions">
                                             <div class="d-flex justify-content-end">
                                                 <a href="{{ route('client.show', $client->id) }}" rel="tooltip" title="Plus de détails" class="btn btn-info">

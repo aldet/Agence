@@ -76,7 +76,7 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#clientagence" @if($activeButton =='client') aria-expanded="true" @endif>
                     <i>
-                        <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
+                        <i class="nc-icon nc-circle-09"></i>
                     </i>
                     <p>
                         {{ __('Client') }}
@@ -107,7 +107,7 @@ Tip 2: you can also add an image using data-image tag
             
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#vehicule" @if($activeButton =='vehicule') aria-expanded="true" @endif>
-                    <i class="nc-icon nc-bank"></i>
+                    <i class="nc-icon nc-bus-front-12"></i>
                     <p>{{ __("Vehicule") }}</p>
                 </a>
                 <div class="collapse @if($activeButton =='vehcicule') show @endif" id="vehicule">
@@ -122,6 +122,28 @@ Tip 2: you can also add an image using data-image tag
                             <a class="nav-link" href="{{route('vehicule.create')}}">
                                 <i class="nc-icon nc-ruler-pencil"></i>
                                 <p>{{ __("Creer voiture") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#marque" @if($activeButton =='marque') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bus-front-12"></i>
+                    <p>{{ __("Marque") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='marque') show @endif" id="marque">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('marque.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste Marque") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('marque.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer Marque") }}</p>
                             </a>
                         </li>
                     </ul>

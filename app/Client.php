@@ -25,6 +25,13 @@ class Client extends Model
         return $this->belongsTo('App\Agence');
     }
     
+     public function vehicule()
+        
+         {
+             return $this->belongsTo('App\Vehicule');
+         }
+     
+    
 }
 
 
