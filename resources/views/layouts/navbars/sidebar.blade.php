@@ -149,6 +149,28 @@ Tip 2: you can also add an image using data-image tag
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#categorie" @if($activeButton =='categorie') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bus-front-12"></i>
+                    <p>{{ __("Categorie") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='categorie') show @endif" id="categorie">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('categorie.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste Categorie") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('categorie.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer Categorie") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>

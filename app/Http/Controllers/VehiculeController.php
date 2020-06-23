@@ -89,6 +89,7 @@ class VehiculeController extends Controller
     {
         $vehicule->update($request->validated());
         $vehicule->save();
+        $request->file->store('public');
         return redirect()->route('vehicule.index');
     }
 
@@ -103,4 +104,6 @@ class VehiculeController extends Controller
         $vehicule->delete();
         return redirect()->route('vehicule.index');
     }
+
+   
 }

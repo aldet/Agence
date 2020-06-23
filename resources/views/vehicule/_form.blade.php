@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group {{$errors->has('photo_vehicule') ? 'has-danger' :''}}">
                             <label class="form-control-label" for="form_vehicule_photo_vehicule"><i class="w3-xxlarge fa fa-user"></i>{{ __('Photo vehicule') }}</label>
-                            <input type="text" name="photo_vehicule" id="form_vehicule_photo_vehicule" required class="form-control {{ $errors->has('photo_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Photo vehicule') }}" value="{{  $vehicule->photo_vehicule}}">
+                            <input type="file" name="photo_vehicule" id="form_vehicule_photo_vehicule" required class="form-control {{ $errors->has('photo_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Photo vehicule') }}" value="{{  $vehicule->photo_vehicule}}">
                             @include('alerts.feedback', ['field' => 'photo_vehicule'])
                         </div>
 

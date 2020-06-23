@@ -24,6 +24,7 @@ Route::resource('client', 'ClientController');
 Route::resource('agence', 'AgenceController');
 Route::resource('vehicule', 'VehiculeController');
 Route::resource('marque', 'MarqueController');
+Route::resource('categorie', 'CategorieController');
 Route::get('/home', 'HomeController@index')->name('dashboard');
 Route::post('ajout/agence','AgenceController@ajoutAgence')->name('ajoutAgence');
 

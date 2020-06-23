@@ -12,10 +12,10 @@
                    <div class="card-body table-full-width table-responsive">
                      <div class="table table-hover table-striped">
                         <table class="table table-hover table-striped">
-                        <thead>
-                            <th>#</th>
-                            <th>Marque</th>
-                        </thead>
+                            <thead>
+                                <th>#</th>
+                                <th>Marque</th>
+                            </thead>
                         <tbody>
                             @foreach ($marques as $marque)
                               <tr>
