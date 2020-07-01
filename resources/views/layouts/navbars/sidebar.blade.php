@@ -171,6 +171,72 @@ Tip 2: you can also add an image using data-image tag
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#tarification" @if($activeButton =='tarification') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bus-front-12"></i>
+                    <p>{{ __("Tarification") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='tarification') show @endif" id="tarification">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('tarification.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste tarification") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('tarification.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer tarification") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#contrat" @if($activeButton =='contrat') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bus-front-12"></i>
+                    <p>{{ __("Contrat") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='conrat') show @endif" id="contrat">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('contrat.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste conrats") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('contrat.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer conrat") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#facture" @if($activeButton =='facture') aria-expanded="true" @endif>
+                    <i class="nc-icon nc-bus-front-12"></i>
+                    <p>{{ __("Facture") }}</p>
+                </a>
+                <div class="collapse @if($activeButton =='Facture') show @endif" id="facture">
+                    <ul class="nav">
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('facture.index')}}">
+                                <i class="nc-icon nc-paper-2"></i>
+                                <p>{{ __("Liste factures") }}</p>
+                            </a>
+                        </li>
+                        <li class="class="nav-item @if($activePage == 'user') active @endif>
+                            <a class="nav-link" href="{{route('facture.create')}}">
+                                <i class="nc-icon nc-ruler-pencil"></i>
+                                <p>{{ __("Creer facture") }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>

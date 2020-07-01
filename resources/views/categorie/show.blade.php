@@ -4,7 +4,7 @@
      <div class="container">
                 <div class="d-flex">
                     <a class="btn btn-default" href="{{route('categorie.index')}}">Liste des categories</a>
-                    <a class="btn btn-info ml-2" href="{{route('categorie.edit, $categorie')}}">Modifier</a>
+                    <a class="btn btn-info ml-2" href="{{route('categorie.edit', $categorie)}}">Modifier</a>
                         <form action="{{route('categorie.destroy', $categorie->id)}}" method="POST" class="ml-auto">
                             @csrf
                             @method('DELETE')
