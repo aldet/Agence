@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateMarquesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('marques', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom_categorie',50);
-            $table->integer('id_vehicule')->unsigned()->nullable();
-            $table->foreign('id_vehicule')->references('id')->on('vehicules');
+            $table->string('marque_vehicule',50);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('marques');
     }
 }

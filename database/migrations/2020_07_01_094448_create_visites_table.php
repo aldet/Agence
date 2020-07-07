@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMarquesTable extends Migration
+class CreateVisitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateMarquesTable extends Migration
      */
     public function up()
     {
-        Schema::create('marques', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('marque_vehicule',50);
-            $table->integer('vehicule_id')->unsigned()->nullable();
-            $table->foreign('vehicule_id')->references('id')->on('vehicules');
+        Schema::create('visites', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateMarquesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marques');
+        Schema::dropIfExists('visites');
     }
 }

@@ -31,10 +31,7 @@ class MarqueController extends Controller
         $marque=new Marque();
         $oldInput=session()->getOldInput();
         $marque->fill($oldInput);
-
-        return view('marque.create',[
-            'marque' => $marque
-            ]);
+        return view('marque.create',['marque' => $marque]);
     }
 
     /**

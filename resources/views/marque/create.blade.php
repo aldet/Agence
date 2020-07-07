@@ -1,5 +1,5 @@
 @extends('layouts.app', ['activePage' => 'icons', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Icons', 'activeButton' => 'laravel'])
-@section('content')
+ @section('content')
   <div class="content">
       <div class="container">
          <div class="row">
@@ -16,7 +16,7 @@
                            </div>
                        </div>
                           <div class="card-body">
-                            @include('marque._form',['action' =>route('marque.store'),'method' =>'POST'])
+                            @include('marque._form',['action' =>route('marque.store'),'method'=>'POST'])
                           </div>
                           <div class="card-footer text-center">
                             <a href="{{ route('marque.index') }}" class="btn btn-default mr-4">{{ __('Cancel') }}</a>

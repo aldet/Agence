@@ -8,8 +8,8 @@ class Marque extends Model
 {
     protected $fillable=['marque_vehicule'];
 
-    public function vehicule()
+    public function vehicules()
     {
-        return $this->belongsTo('App\Vehicule');
+        return $this->hasMany('App\Vehicule');
     }
 }

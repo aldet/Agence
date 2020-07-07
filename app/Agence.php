@@ -25,4 +25,8 @@ class Agence extends Model
         return $this->hasMany('App\Client');
     }
     
+    public function vehicule()
+    {
+        return $this->hasMany('App\Vehicule');
+    }
 }

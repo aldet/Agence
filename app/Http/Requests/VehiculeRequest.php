@@ -30,6 +30,8 @@ class VehiculeRequest extends FormRequest
             'date_achat'        => ['nullable'],
             'photo_vehicule'    => ['nullable'],
             'carte_grise'       => ['nullable'],
+            'id_categorie'      => ['required'],
+            'id_marque'         => ['required'],
             
         ];
     }

@@ -16,7 +16,10 @@
                                 <th>Nom</th>
                                 <th>Matriculation</th>
                                 <th>kilometrage</th>
-                                <th>Date achat</th>                        
+                                <th>Date achat</th> 
+                                <th>Marque</th>
+                                <th>Categorie</th> 
+                                <th></th>                      
                                 </thead>
                                 <tbody>
                                 @foreach ($vehicules as $vehicule)
@@ -26,6 +29,8 @@
                                         <td>{{$vehicule->num_matriculation}}</td>
                                         <td>{{$vehicule->km_compteur}}</td>
                                         <td>{{$vehicule->date_achat}}</td>
+                                        <td>{{$vehicule->marque ? $vehicule->marque->marque_vehicule : ""}}</td>
+                                        <td>{{ $vehicule->categorie ? $vehicule->categorie->nom_categorie : "" }}</td>
                                         <td class="td-actions">
                                             <div class="d-flex justify-content-end">
                                                 <a href="{{ route('vehicule.show', $vehicule->id) }}" rel="tooltip" title="Plus de détails" class="btn btn-info">

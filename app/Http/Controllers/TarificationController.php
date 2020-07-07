@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TarificationRequest;
 use Illuminate\Http\Request;
 use App\Tarification;
+use App\Agence;
+use App\Categorie;
 use Illuminate\Validation\Rule;
 
 class TarificationController extends Controller
@@ -15,7 +17,7 @@ class TarificationController extends Controller
      */
     public function index()
     {
-        $tarifications=Tarification::all();
+        $tarifications=Tarification::with(["categorie"])->get();
         return view('tarification.index')->with('tarifications',$tarifications);
     }
 
@@ -27,7 +29,8 @@ class TarificationController extends Controller
     public function create()
     {
         $tarification=new Tarification();
-        return view('tarification.create',['tarification' => $tarification]);
+        $categories=Categorie::all(["id","nom_categorie"]);
+        return view('tarification.create',compact('tarification','categories'));
     }
 
     /**
@@ -37,8 +40,10 @@ class TarificationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(TarificationRequest $request)
-    {
+    {   
         $tarification=new Tarification();
+        //$agence = Agence::all()->first();
+        //$tarification->agence_id = $agence->id;
         $tarification->fill($request->validated());
         $tarification->save();
         return response()->redirectToRoute('tarification.show',$tarification);
@@ -62,10 +67,11 @@ class TarificationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Tarification $tarification)
-    {
+    { 
         $oldInput=session()->getOldInput();
         $tarification->fill($oldInput);
-        return view('tarification.edit',['tarification' => $tarification]);
+        $categories=Categorie::all(["id","nom_categorie"]);
+        return view('tarification.edit',['tarification' => $tarification, 'categories'=>$categories]);
 
     }
 

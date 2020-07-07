@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicule extends Model
 {
   
-    protected $fillable=['nom','num_matriculation','km_compteur','date_achat','photo_vehicule','carte_grise'];
+    protected $fillable=['nom','num_matriculation','km_compteur','date_achat','photo_vehicule','carte_grise','id_categorie','id_marque'];
 
         public function client()
     {
@@ -35,9 +35,15 @@ class Vehicule extends Model
            return $this->belongsTo('App\Agence');
        }
 
+
+       public function categorie()
+       {
+           return $this->belongsTo('App\Categorie', 'id_categorie');
+       }
+        
        public function marque()
        {
-           return $this->hasOne('App\Marque');
+           return $this->belongsTo('App\Marque','id_marque');
        }
 }
   

@@ -4,7 +4,7 @@
        <div class="container">
          <div class="d-flex">
             <a class="btn btn-default" href="{{route('tarification.index')}}" >Liste tarification</a>
-            <a class="btn btn-info" href="{{route('tarification.edit')}}" >Modifier</a>
+            <a class="btn btn-info" href="{{route('tarification.edit',$tarification)}}" >Modifier</a>
                 <form action="{{route('tarification.destroy', $tarification->id)}}" method="POST" class="ml-auto">
                     @csrf
                     @method('DELETE')
@@ -24,7 +24,6 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </div>
                         </div>
-
                         <div>Nom: {{ $tarification->nom_tarification }}</div>
                         <div>Montant: {{ $tarification->montant}}</div>
                     </div>

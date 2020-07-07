@@ -7,7 +7,7 @@
                <div class="card">
                    <div class="card-header d-flex justify-content-between" >
                      <h4 class="caard-title">Liste des tarifications</h4>
-                     <a href="{{route('tarification.create')}}">{{__('Ajouter tarification')}}</a>
+                     <a href="{{route('tarification.create')}}">Ajouter tarification</a>
                    </div>
                    <div class="card-body table-full-width table-responsive">
                       <table class="table table-hover table-striped">
@@ -15,6 +15,7 @@
                               <th>#</th>
                               <th>Nom tarification</th>
                               <th>Montant</th>
+                              <th>Categorie</th>
                           </thead>
                           <tbody>
                               @foreach ($tarifications as $tarification)
@@ -22,12 +23,14 @@
                                     <td>{{$tarification->id}}</td>
                                     <td>{{$tarification->nom_tarification}}</td>
                                     <td>{{$tarification->montant}}</td>
+                                    <td>{{ $tarification->categorie ? $tarification->categorie->nom_categorie : "" }}</td>
+
                                     <td class="td-actions">
                                         <div class="d-flex justify-content-end">
                                             <a href="{{ route('tarification.show', $tarification->id) }}" rel="tooltip" title="Plus de détails" class="btn btn-info">
                                                 <i class="nc-icon nc-notes"></i>
                                             </a>
-                                            <a href="{{route('tarification.edit',$tarification->id)}}" rel="tooltip" title="Modifier"  class="btn btn-success">
+                                            <a href="{{route('tarification.edit', $tarification->id)}}" rel="tooltip" title="Modifier"  class="btn btn-success">
                                                 <i class="nc-icon nc-layers-3"></i>
                                             </a>
                                             <form action="{{ route('tarification.destroy', $tarification->id)}}" method="POST">

@@ -5,7 +5,10 @@ use App\Agence;
 use App\Http\Requests\VehiculeRequest;
 use Illuminate\Http\Request;
 use App\Vehicule;
+use App\Categorie;
+use App\Marque;
 use Illuminate\Validation\Rule;
+
 
 
 class VehiculeController extends Controller
@@ -17,7 +20,7 @@ class VehiculeController extends Controller
      */
     public function index()
     {
-        $vehicules=Vehicule::all();
+        $vehicules=Vehicule::with(["categorie", "marque"])->get();
         return view('vehicule.index')->with('vehicules',$vehicules);
 
     }
@@ -30,7 +33,9 @@ class VehiculeController extends Controller
      */
     public function create()
     {  $vehicule=new Vehicule();
-       return view('vehicule.create',['vehicule'=>$vehicule]);
+       $categories=Categorie::all(["id","nom_categorie"]);
+       $marques=Marque::all(["id","marque_vehicule"]);
+       return view('vehicule.create',compact('vehicule','categories','marques'));
     }
 
     /**
@@ -49,7 +54,6 @@ class VehiculeController extends Controller
         // TODO: Utiliser l'agence de l'utilisateur connecté
         $agence = Agence::all()->first();
         $vehicule->agence_id = $agence->id;
-
         $vehicule->fill($request->validated())->save();
         return response()->redirectToRoute('vehicule.show',$vehicule);
 
@@ -72,10 +76,12 @@ class VehiculeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicule $vehivule)
+    public function edit(Vehicule $vehicule)
     {   $oldInput=session()->getOldInput();
-        $vehicule=fill($oldInput);
-        return view('gestionvehicule.edit',['vehicule' => $vehicule]);
+        $vehicule->fill($oldInput);
+        $categories=Categorie::all(["id","nom_categorie"]);
+        $marques=Marque::all(["id","marque_vehicule"]);
+        return view('vehicule.edit',['vehicule' => $vehicule, "categories" => $categories,"marques"=>$marques]);
     }
 
     /**
@@ -89,7 +95,7 @@ class VehiculeController extends Controller
     {
         $vehicule->update($request->validated());
         $vehicule->save();
-        $request->file->store('public');
+        //$request->file->store('public');
         return redirect()->route('vehicule.index');
     }
 

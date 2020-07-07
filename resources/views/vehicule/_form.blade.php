@@ -26,7 +26,28 @@
                         </div>
                         <div class="form-group {{$errors->has('photo_vehicule') ? 'has-danger' :''}}">
                             <label class="form-control-label" for="form_vehicule_photo_vehicule"><i class="w3-xxlarge fa fa-user"></i>{{ __('Photo vehicule') }}</label>
-                            <input type="file" name="photo_vehicule" id="form_vehicule_photo_vehicule" required class="form-control {{ $errors->has('photo_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Photo vehicule') }}" value="{{  $vehicule->photo_vehicule}}">
+                            <input type="text" name="photo_vehicule" id="form_vehicule_photo_vehicule" required class="form-control {{ $errors->has('photo_vehicule') ? ' is-invalid' : '' }}" placeholder="{{ __('Photo vehicule') }}" value="{{  $vehicule->photo_vehicule}}">
                             @include('alerts.feedback', ['field' => 'photo_vehicule'])
                         </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="form_id_marque"><i class="w3-xxlarge fa fa-user"></i>{{ __('Marque') }}</label>
+                            <div class="select">
+                                <select name="id_marque" class="form-control">
+                                   @foreach ($marques as $marque)
+                                <option value="{{$marque->id}}">{{$marque->marque_vehicule}}</option>
+                                   @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="form_id_categorie"><i class="w3-xxlarge fa fa-user"></i>{{ __('Categorie') }}</label>
+                            <div class="select">
+                                <select name="id_categorie" class="form-control">
+                                   @foreach ($categories as $categorie)
+                                <option value="{{$categorie->id}}">{{$categorie->nom_categorie}}</option>
+                                   @endforeach
+                                </select>
+                            </div>
+                        </div>
+                       
 

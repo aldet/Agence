@@ -8,3 +8,13 @@
     <input  type="text" id="form_montant_vehicule" name="montant" required class="form-control {{$errors->has('montant') ? 'is-invalid' : ''}}" placeholder="{{__('montant')}}" value="{{$tarification->montant}}">
     @include('alerts.feedback',['field'=>'montant'])
 </div>
+<div class="form-group">
+    <label class="form-control-label" for="form_id_categorie"><i class="w3-xxlarge fa fa-user"></i>{{ __('Categorie') }}</label>
+    <div class="select">
+        <select name="id_categorie" class="form-control">
+           @foreach ($categories as $categorie)
+        <option value="{{$categorie->id}}">{{$categorie->nom_categorie}}</option>
+           @endforeach
+        </select>
+    </div>
+</div>

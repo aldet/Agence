@@ -24,8 +24,9 @@ class TarificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom_tarification' =>['required','min:2','max:255'],
-            'montant' =>['required','min:2','max:30'],
+            'nom_tarification'      =>['required','min:2','max:255'],
+            'montant'               =>['required','min:2','max:30'],
+            'id_categorie'          =>['required'],
         ];
     }
 }
